@@ -1,0 +1,3 @@
+[submodule "otus-unittest"]
+	path = otus-unittest
+	url = https://github.com/idontgiveit/otus-unittest.git
