@@ -2,18 +2,28 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
-        BoxImpl<Fruit> box1 = new BoxImpl<>();
-        Orange orange1 = new Orange();
-        Orange orange2 = new Orange();
-        Apple apple1 = new Apple(3);
+        BoxImpl<Orange> orangeBox1 = new BoxImpl<>();
+        BoxImpl<Orange> orangeBox2 = new BoxImpl<>();
+        BoxImpl<Apple> appleBox = new BoxImpl<>();
 
-        box1.putFruit(orange1);
-        box1.putFruit(apple1);
-        System.out.print(box1.getFruits());
-        box1.printFruits();
-        System.out.print(orange1.getClass());
-        //TODO: добавить методы в интерфейс и проверить их в main
+        Orange orange = new Orange();
+        Orange orangeCustom = new Orange(4);
+        Apple apple = new Apple();
+        Apple appleCustom = new Apple(3);
+
+        for (int i = 0; i < 3; i++) {
+            orangeBox1.putFruit(orange);
+        }
+        orangeBox1.putFruit(orangeCustom);
+        for (int i = 0; i < 3; i++) {
+            appleBox.putFruit(apple);
+        }
+        appleBox.putFruit(appleCustom);
+
+        System.out.println(orangeBox1.compare(orangeBox2));
+        orangeBox1.pour(orangeBox2);
+        orangeBox2.printFruitsWeight();
+
     }
 }

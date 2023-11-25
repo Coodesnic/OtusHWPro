@@ -20,11 +20,8 @@ public class BoxImpl<N extends Fruit> {
         this.fruits.add(fruit);
     }
 
-    public boolean compare(BoxImpl box) {
-        if (this.weight() == box.weight())
-            return true;
-        else
-            return false;
+    public boolean compare(BoxImpl<N> box) {
+        return this.weight() == box.weight();
     }
 
     public int weight() {
@@ -35,13 +32,12 @@ public class BoxImpl<N extends Fruit> {
         return boxWeight;
     }
 
-    public BoxImpl<N> pour (BoxImpl<N> box){
+    public void pour (BoxImpl<N> box){
         box.fruits.addAll(this.fruits);
         fruits.clear();
-        return box;
     }
 
-    public void printFruits() {
+    public void printFruitsWeight() {
         for (N fruit : fruits) {
             System.out.println(fruit.weight);
         }
